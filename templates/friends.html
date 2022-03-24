@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Your Friends</title>
+</head>
+<body>
+
+	{% if friends %} 
+		<h3>Your Friends: </h3>
+    	<ul>
+    	{% for friend in friends %}
+    		<li>
+      		{{friend}} 
+    		</li>
+    	{% endfor %}
+    	</ul>
+        <h2><a href="/search_add">Add new friends</a></h2>
+
+    {% else %}
+    	<h3>Oh no! It looks like you don't have any friend</h3>
+
+    	<h3>Search for New Friends Below</h3>
+        <h2><a href="/search_add">Search for new friends</a></h2>
+
+    {% endif %}
+
+    <ul>
+        <li><a href='/upload'>Upload a photo</a> </li>
+        <li><a href='/logout'>Logout</a></li>
+        <li><a href='/'>Home</a></li>
+    </ul>
+    
+
+</body>
+</html>

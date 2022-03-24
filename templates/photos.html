@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Here's Your Pictures</title>
+</head>
+<body>
+
+	{% if message %}
+  		<h2>{{message}}!</h2>
+	{% endif %}
+
+	{% if photos %}
+    	<ul>
+    	{% for photo in photos %}
+        	<li><h4>{{photo[2]}}</h4><br>
+				<img src='data:image/png;base64,{{photo[1]}}' style='width:400px; height:auto'/></li>
+        	<a href="/deletephoto/{{albumid}}/{{photo[0]}}">Delete</a><br>
+        	<a href="/viewtags/{{albumid}}/{{photo[0]}}">View tags</a><br>
+        	<a href="/viewcomments/{{albumid}}/{{photo[0]}}">View comments</a><br>
+			<a href="/makecomments/{{albumid}}/{{photo[0]}}">Make comments</a><br>
+        	<a href="/viewlikes/{{albumid}}/{{photo[0]}}">View likes</a><br>
+    	{% endfor %}
+    	</ul>
+
+    {% else %}
+    	<h2>Looks like there's no photo in this album yet</h2>
+
+	{% endif %}
+
+	<ul>
+		<li><a href='/upload/{{albumid}}'>Upload a photo now!</a> </li> 
+		<li><a href='/viewalbums'>Back to your albums</a> </li> 
+		<li><a href='/logout'>Logout</a></li>
+		<li><a href='/'>Home</a></li>
+	</ul>
+
+</body>
+</html>
+

@@ -1,0 +1,24 @@
+<head>
+	<title>Here are all your photos!</title>
+</head>
+	<body>
+		<div class="title">
+            <h1>My Photos</h1>
+        </div>
+
+
+<li><a href='/profile'>Profile</a></li>
+<li><a href='/'>Home</a></li>
+
+{% if photos %}
+<h2>Here are your photos</h2>
+    <ul>
+    {% for photo in photos %}
+        <li>{{photo[2]}}<br>
+        <img src='data:image/jpg;base64, {{ base64.b64encode(photo[0]).decode("ascii") }}'/></li>
+        <input type="hidden" value={{photo[1]}} name="picture_id" /> 
+        <input type="submit" value="Delete Picture" />
+        </form>
+    {% endfor %}
+    </ul>
+{% endif %}

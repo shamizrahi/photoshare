@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Search and Add</title>
+</head>
+<body>
+
+	<h1>Seach for Friends</h1>
+
+	{% if results %}
+	<h2>Results: </h2>
+    	<ul>
+    	{% for result in results %}
+    		<li>
+      			{{result[1]}} 
+            {{result[2]}} 
+			<form method="post" enctype="multipart/form-data" action="/search_add">
+			<!-- <input name="form" type="submit" value="add friend"/> -->
+			<a href="/addfriends/{{result[0]}}">Add friend</a> 
+    		</li>
+    	{% endfor %}
+    	</ul>
+
+	{% endif %}
+
+
+	 <form method="post" enctype="multipart/form-data" action="/search_add">
+	 	<label for="?">Please enter an email address: </label>
+      <input type="text" name="?" /> 
+      <input type="submit"/>
+	 </form>
+
+     <ul>
+        <li><a href='/logout'>Logout</a></li>
+        <li><a href='/'>Home</a></li>
+    </ul>
+    
+</body>
+</html>

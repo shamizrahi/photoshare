@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Make a new comment</title>
+</head>
+<body>
+	{% if message %}
+  		<h2>{{message}}!</h2>
+	{% endif %}
+
+	<form method="post" enctype="multipart/form-data" action="/makecomment/{{albumid}}/{{photoid}}">
+        <label for="test">Please enter your comments here:</label>
+        <input type="text" name="test" placeholder='comment' required='true' /><br />
+       	<div class="form-group">
+            <label for="comment_date">Please select a comment date:</label>
+			       <input type="date" name="comment_date" class="form-control" >
+		    </div>
+		    <input type="submit" value="comment" />
+
+  </form>
+    </ul>
+        <li><a href='/'>Home</a></li>
+    </ul>
+
+</body>
+</html>

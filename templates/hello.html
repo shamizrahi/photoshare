@@ -12,7 +12,6 @@
 <h2>Here are your photos</h2>
     <ul>
     {% for photo in photos %}
-
         <li>{{photo[2]}}<br>
         <img src='data:image/jpg;base64, {{ base64.b64encode(photo[0]).decode("ascii") }}'/></li>
     {% endfor %}
@@ -26,7 +25,15 @@
 {% endif %}
 
 <ul>
-<li><a href='/upload'>Upload a photo</a> </li>
-<li><a href='/logout'>Logout</a></li>
-<li><a href='/'>Home</a></li>
-</ul>
+  <li><a href='/upload'>Upload photo</a> </li> 
+  <li><a href='/logout'>Logout</a></li>
+  <li><a href='/display_pictures'>View pictures</a></li>
+  <li><a href='/viewalbums'> View albums</a></li>
+  <li><a href='/create_album'>Create Album</a></li>
+  <li><a href='/friends'>Friends</a></li>
+  <li><a href='/tags_and_likes'>All Tagged Photos</a></li>
+  <li><a href='/usertags'>Your Tagged Photos</a></li>
+  <li><a href='/youmayalsolike'>You May Also like</a></li>
+  <li><a href='/friend_recommendation'>Recommended Friends </a></li>
+
+

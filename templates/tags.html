@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tags</title>
+</head>
+<body>
+
+<h1> Photos by Tag Name <h1>
+<h3> Like the photos that interest you :) <h3>
+
+{% if tags %}
+    {% for tag in tags %}
+
+        <h2>Tag: {{tag[0]}}</h2>
+
+            {% if photos %}
+                {% for photo in photos %}
+                        <img src='data:image/jpg;base64, {{ base64.b64encode(photo[0]).decode("ascii") }}'/></li>
+                        <form method="post" enctype="multipart/form-data" action="/like">
+                        <input type="submit" value="Like" />
+                    </form>
+                        
+                {% endfor %}
+            {% endif %}
+    {% endfor %}
+{% endif %}
+
+<ul>
+    <li><a href='/upload'>Upload a photo</a> </li>
+    <li><a href='/logout'>Logout</a></li>
+    <li><a href='/'>Home</a></li>
+</ul>
+
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!doctype html>
+<title> Recommendation</title>
+
+<h1> Friend recommendations: </a></h1>
+
+{% if recommendations %}
+    {% for recommendation in recommendations %}
+        <li>
+        {{recommendation}}
+        </li>
+    {% endfor %}
+{% endif %}
+
+
+
+<ul>
+    <li><a href='/logout'>Logout</a></li>
+    <li><a href='/'>Home</a></li>
+</ul>

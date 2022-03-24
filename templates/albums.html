@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+	{% if message %}
+  		<h2>{{message}}!</h2>
+	{% endif %}
+
+
+	{% if albums %} 
+    	<ul>
+    	{% for album in albums %}
+    		<li>
+      		{{album[1]}} 
+      		<a href="/viewalbums/{{album[0]}}">View this album</a>
+      		<a href="/deletealbum/{{album[0]}}">Delete</a>
+    		</li>
+    	{% endfor %}
+    	</ul>
+
+	{% else %}
+	<h2>Looks like you don't have any album yet</h2>
+	<h2><a href="/create_album">Create a new album</a></h2>
+
+	{% endif %}
+
+	<ul>
+		<li><a href='/upload'>Upload a photo</a> </li>
+    	<li><a href='/logout'>Logout</a></li>
+    	<li><a href='/'>Home</a></li>
+	</ul>
+
+</body>
+</html>

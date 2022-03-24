@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>View comments</title>
+</head>
+<body>
+	{% if message %}
+  		<h2>{{message}}!</h2>
+	{% endif %}
+
+	{% if comments %}
+		{% for comment in comments %}
+		<ul>
+			<li>{{comment[1]}}</li>
+			<li>{{comment[3]}}</li>
+			<li>{{comment[4]}}</li>
+
+		</ul>
+
+		{% endfor %}
+
+		{% if canedit %}
+			<a href="/makecomment/{{albumid}}/{{photoid}}">Make a comment on this photo</a>
+		{% endif %}
+
+	{% else %}
+		<h4>Looks like there is no comment for this photo</h4>
+
+		{% if canedit %}
+			<a href="/makecomment/{{albumid}}/{{photoid}}">Make comment now</a>
+		{% endif %}
+		
+	{% endif %}
+
+
+	<ul>
+		<li><a href='/upload'>Upload a photo</a> </li>
+    	<li><a href='/logout'>Logout</a></li>
+    	<li><a href='/'>Home</a></li>
+	</ul>
+
+
+
+</body>
+</html>
